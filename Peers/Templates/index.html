@@ -1,0 +1,15 @@
+<h1>출퇴근 관리 페이지</h1>
+<h2>서비스에 접근하려면 로그인하세요</h2>
+    <form method="POST" action="{% url 'index'%}">
+            {% csrf_token %}
+            Username:
+            <br>
+            <input name="username" type="text" value="">
+            <br>
+            Password:
+            <br>
+            <input name="password" type="pasword" value="">
+            <br>
+            <br>
+            <input class="btn btn-primary" type="submit" value="로그인">
+    </form>
