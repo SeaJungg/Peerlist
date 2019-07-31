@@ -1,3 +1,9 @@
-{{person.peername}}의 개인 페이지입니다.
-현재 {{person.Attend}}상태입니다.
-출/퇴근 상태를 변경하려면 개인 코드를 입력하세요.
+{{person.peername}}의 개인 페이지입니다.<br>
+현재 {{person.attend}}상태입니다.<br>
+출/퇴근 상태를 변경하려면 개인 코드를 입력하세요.<br>
+
+<form action ="{% url 'index' %}">
+    <input type="peercode">
+    <input type="submit" value='변경하기'>
+</form>
+<a href="index.html"> 홈으로 </a>

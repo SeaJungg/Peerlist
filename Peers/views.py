@@ -20,6 +20,15 @@ def index(request):
         return render(request, 'index.html', {'person' : person})
     return render(request, 'index.html') 
 
-def detail(request, peer_id):
+def detail(request, person_id):
     person_detail = get_object_or_404(PeerIDs, pk=person_id)
     return render(request, 'detail.html',{'person':person_detail})
+
+def change(request):
+    person = PeerIDs()
+    if person.attend == True:
+        person.attend = False
+    else:
+        person.attend = True
+    person.save()
+    return redirect('/peer/'+str(person.id))

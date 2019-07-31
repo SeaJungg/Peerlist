@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import Peers.views
+from Peers import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Peers.views.index, name='index'),
-    path('peer/<int:person_id>', Peers.views.detail, name='detail'),
+    path('', views.index, name='index'),
+    path('peer/<int:person_id>', views.detail, name='detail'),
 ]
