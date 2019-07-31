@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import PeerIDs
+
 
 
 def index(request):
@@ -15,6 +16,10 @@ def index(request):
         else:
             return render(request, 'index.html')
     else:
-        persons = PeerIDs.objects
-        return render(request, 'index.html', {'persons' : persons})
+        person = PeerIDs.objects
+        return render(request, 'index.html', {'person' : person})
     return render(request, 'index.html') 
+
+def detail(request, peer_id):
+    person_detail = get_object_or_404(PeerIDs, pk=person_id)
+    return render(request, 'detail.html',{'person':person_detail})

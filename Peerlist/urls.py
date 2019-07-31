@@ -20,4 +20,5 @@ import Peers.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Peers.views.index, name='index'),
+    path('peer/<int:person_id>', Peers.views.detail, name='detail'),
 ]
