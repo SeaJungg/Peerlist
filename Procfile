@@ -1,0 +1,1 @@
+web: gunicorn Peerlist.wsgi --log-file -
