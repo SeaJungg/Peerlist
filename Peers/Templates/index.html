@@ -1,5 +1,11 @@
 <h1>출퇴근 관리 페이지</h1>
+{% if user.is_authenticated %}
+    {% for person in person.all %}
+    {{person.peername}} {{person.attend}} <a href="{% url 'detail' person.id %}" >상태 변경하기</a><br>
+    {% endfor %}
+{% else %}
 <h2>서비스에 접근하려면 로그인하세요</h2>
+<h3>초기 아이디와 비밀번호는 admin / a 입니다.</h3>
     <form method="POST" action="{% url 'index'%}">
             {% csrf_token %}
             Username:
@@ -13,8 +19,4 @@
             <br>
             <input class="btn btn-primary" type="submit" value="로그인">
     </form>
-
-    {% for person in person.all %}
-    {{person.peername}} {{person.attend}} <a href="{% url 'detail' person.id %}" >상태 변경하기</a><br>
-    {% endfor %}
-
+{% endif %}
